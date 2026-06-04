@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — Rodamolt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0A0A;
+      --surface:   #111111;
+      --elev:      #1A1A1A;
+      --border:    rgba(255,255,255,0.08);
+      --primary:   #FF6B35;
+      --primary-d: rgba(255,107,53,0.12);
+      --text:      #F0F0F0;
+      --dim:       #888888;
+      --dim2:      #555555;
+      --cyan:      #00D4FF;
+      --green:     #4CAF50;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, #0A0A0A 0%, #1A0A00 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 600px 300px at 50% 100%, rgba(255,107,53,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: var(--primary);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .logo-name {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    header h1 {
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    header h1 span { color: var(--primary); }
+    header p {
+      color: var(--dim);
+      font-size: 14px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--dim);
+      font-family: 'Geist Mono', monospace;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────────────────── */
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ── TOC ─────────────────────────────────────────────────────────── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .toc h2 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--dim);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .toc ol {
+      padding-left: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 20px;
+    }
+    @media (max-width: 520px) { .toc ol { grid-template-columns: 1fr; } }
+    .toc a {
+      color: var(--dim);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s;
+    }
+    .toc a:hover { color: var(--primary); }
+
+    /* ── SECTIONS ────────────────────────────────────────────────────── */
+    section { margin-bottom: 52px; }
+    section:target > h2 { color: var(--primary); }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.4px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+    h2 .icon {
+      width: 32px; height: 32px;
+      background: var(--primary-d);
+      border: 1px solid rgba(255,107,53,0.2);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 24px 0 10px;
+    }
+
+    p { margin-bottom: 14px; color: var(--dim); }
+    p:last-child { margin-bottom: 0; }
+
+    strong { color: var(--text); font-weight: 600; }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    li { color: var(--dim); margin-bottom: 6px; }
+    li strong { color: var(--text); }
+
+    /* ── CARDS ───────────────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .card p { font-size: 13px; margin: 0; }
+
+    /* ── TABLE ───────────────────────────────────────────────────────── */
+    .table-wrap { overflow-x: auto; margin-bottom: 14px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th {
+      background: var(--elev);
+      color: var(--dim);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 11px;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      color: var(--dim);
+      vertical-align: top;
+    }
+    td strong { color: var(--text); }
+    tr:hover td { background: var(--elev); }
+
+    /* ── HIGHLIGHT BOXES ─────────────────────────────────────────────── */
+    .alert {
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .alert-icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+    .alert-body { color: var(--dim); line-height: 1.5; }
+    .alert-body strong { color: var(--text); }
+    .alert.info { background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); }
+    .alert.warn { background: rgba(255,193,7,0.06); border: 1px solid rgba(255,193,7,0.15); }
+    .alert.success { background: rgba(76,175,80,0.06); border: 1px solid rgba(76,175,80,0.15); }
+    .alert.orange { background: var(--primary-d); border: 1px solid rgba(255,107,53,0.2); }
+
+    /* ── CHIP ROWS ───────────────────────────────────────────────────── */
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+    .chip {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-family: 'Geist Mono', monospace;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      color: var(--dim);
+      background: var(--elev);
+    }
+
+    /* ── CONTACT CARD ────────────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 480px) { .contact-grid { grid-template-columns: 1fr; } }
+    .contact-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .contact-label { font-size: 11px; color: var(--dim2); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+    .contact-value { font-size: 14px; color: var(--text); font-weight: 500; }
+    .contact-value a { color: var(--primary); text-decoration: none; }
+    .contact-value a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--dim2);
+      font-family: 'Geist Mono', monospace;
+    }
+    footer span { color: var(--dim); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">🏍</div>
+    <span class="logo-name">Rodamolt</span>
+  </div>
+  <h1>Política de <span>Privacidad</span></h1>
+  <p>Cómo recogemos, usamos y protegemos tu información cuando usas la aplicación Rodamolt.</p>
+  <div class="badge">Última actualización: Junio 2026 · v0.4.8</div>
+</header>
+
+<div class="page">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#responsable">Responsable del tratamiento</a></li>
+      <li><a href="#datos">Datos que recogemos</a></li>
+      <li><a href="#permisos">Permisos del dispositivo</a></li>
+      <li><a href="#uso">Cómo usamos tus datos</a></li>
+      <li><a href="#terceros">Terceros y subencargados</a></li>
+      <li><a href="#transferencias">Transferencias internacionales</a></li>
+      <li><a href="#retencion">Retención de datos</a></li>
+      <li><a href="#compras">Compras dentro de la app</a></li>
+      <li><a href="#derechos">Tus derechos (RGPD)</a></li>
+      <li><a href="#menores">Menores de edad</a></li>
+      <li><a href="#cookies">Datos locales y caché</a></li>
+      <li><a href="#cambios">Cambios en esta política</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. Responsable -->
+  <section id="responsable">
+    <h2><span class="icon">🏢</span>1. Responsable del tratamiento</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-label">Empresa / Desarrollador</div>
+        <div class="contact-value">Caladev Studio</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Correo electrónico</div>
+        <div class="contact-value"><a href="mailto:caladevstudio@gmail.com">caladevstudio@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Sede</div>
+        <div class="contact-value">Lleida, España</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Aplicación</div>
+        <div class="contact-value">Rodamolt — Rutas en moto</div>
+      </div>
+    </div>
+    <p style="margin-top:16px;">En cumplimiento del <strong>Reglamento (UE) 2016/679 (RGPD)</strong>, la <strong>Ley Orgánica 3/2018 de Protección de Datos (LOPDGDD)</strong> y la normativa aplicable de Apple App Store y Google Play Store, te informamos de cómo tratamos tus datos personales.</p>
+  </section>
+
+  <!-- 2. Datos -->
+  <section id="datos">
+    <h2><span class="icon">📋</span>2. Datos que recogemos</h2>
+
+    <h3>2.1 Datos de cuenta</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Dato</th><th>Fuente</th><th>Finalidad</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Nombre o apodo</strong></td><td>Registro manual / Google / Apple</td><td>Identificación en la app y perfil público</td></tr>
+          <tr><td><strong>Dirección de email</strong></td><td>Registro manual / Google / Apple</td><td>Autenticación y comunicaciones de servicio</td></tr>
+          <tr><td><strong>Foto de perfil</strong></td><td>Galería / cámara (opcional)</td><td>Avatar visible en perfil público y redes sociales de la app</td></tr>
+          <tr><td><strong>Foto del vehículo</strong></td><td>Galería / cámara (opcional)</td><td>Garaje personal dentro de la app</td></tr>
+          <tr><td><strong>Modelo / tipo de vehículo</strong></td><td>Registro manual</td><td>Estadísticas y filtros de rutas</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2.2 Datos de ubicación y rutas</h3>
+    <div class="alert warn">
+      <span class="alert-icon">📍</span>
+      <div class="alert-body"><strong>Ubicación precisa y en segundo plano:</strong> Rodamolt requiere acceso a tu ubicación GPS mientras grabas una ruta, incluso cuando la pantalla está apagada. Puedes iniciar y detener la grabación en cualquier momento. Nunca accedemos a tu ubicación si no has iniciado una grabación activa.</div>
+    </div>
+    <ul>
+      <li><strong>Coordenadas GPS</strong> — latitud, longitud y altitud durante la grabación de rutas.</li>
+      <li><strong>Velocidad instantánea</strong> — derivada del GPS durante la ruta.</li>
+      <li><strong>Trazado completo</strong> — secuencia de puntos que forma la ruta grabada.</li>
+      <li><strong>Ubicación del parking</strong> — punto único guardado manualmente por el usuario (opcional).</li>
+    </ul>
+
+    <h3>2.3 Telemetría del dispositivo</h3>
+    <p>Durante una grabación activa, la app lee los sensores del móvil para enriquecer las estadísticas de la ruta:</p>
+    <div class="chips">
+      <span class="chip">Ángulo de inclinación (lean)</span>
+      <span class="chip">Fuerza G lateral</span>
+      <span class="chip">Altitud barométrica</span>
+      <span class="chip">Acelerómetro</span>
+      <span class="chip">Giroscopio</span>
+    </div>
+    <p>Estos datos <strong>nunca se comparten con terceros</strong> ni se usan para publicidad. Se almacenan únicamente en tu perfil privado de Firebase.</p>
+
+    <h3>2.4 Fotos de ruta</h3>
+    <p>Puedes adjuntar fotos georreferenciadas a tus rutas. Cada foto se almacena en <strong>Firebase Storage</strong> bajo tu UID y nunca es accesible por otros usuarios salvo que marques la ruta como pública.</p>
+
+    <h3>2.5 Datos sociales</h3>
+    <ul>
+      <li>Lista de amigos (solicitudes aceptadas mutuamente).</li>
+      <li>Miembros de comunidades y grupos a los que perteneces.</li>
+      <li>Puntuaciones en ranking mensual de comunidades (km, participaciones).</li>
+      <li>Estado de presencia en tiempo real ("Amigos Rodando") — solo activo mientras la app está en primer plano.</li>
+    </ul>
+
+    <h3>2.6 Datos opcionales</h3>
+    <ul>
+      <li><strong>Contacto de emergencia</strong> — nombre y teléfono, almacenado únicamente en tu dispositivo y en tu documento privado de Firestore.</li>
+      <li><strong>Mantenimiento del vehículo</strong> — registros de revisiones y gastos, solo visibles para ti.</li>
+    </ul>
+
+    <h3>2.7 Datos técnicos y de diagnóstico</h3>
+    <ul>
+      <li>Informes de errores y bloqueos de la app via <strong>Firebase Crashlytics</strong> (sin datos de ruta ni localización incluidos en los informes).</li>
+      <li>Tokens de dispositivo para notificaciones push.</li>
+      <li>Versión de la app y sistema operativo (solo en logs de Crashlytics).</li>
+    </ul>
+  </section>
+
+  <!-- 3. Permisos -->
+  <section id="permisos">
+    <h2><span class="icon">🔐</span>3. Permisos del dispositivo</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Permiso</th><th>Por qué es necesario</th><th>¿Obligatorio?</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Ubicación precisa</strong><br><small>(ACCESS_FINE_LOCATION / NSLocationWhenInUseUsageDescription)</small></td>
+            <td>Grabar el trazado GPS de tus rutas con precisión.</td>
+            <td>Sí — la función principal no funciona sin él.</td>
+          </tr>
+          <tr>
+            <td><strong>Ubicación en segundo plano</strong><br><small>(ACCESS_BACKGROUND_LOCATION / NSLocationAlwaysUsageDescription)</small></td>
+            <td>Continuar grabando la ruta con la pantalla apagada o al cambiar de app.</td>
+            <td>Opcional — puedes grabar solo con pantalla encendida.</td>
+          </tr>
+          <tr>
+            <td><strong>Cámara</strong><br><small>(CAMERA / NSCameraUsageDescription)</small></td>
+            <td>Tomar fotos de perfil, vehículo y puntos de ruta desde la cámara del móvil.</td>
+            <td>Opcional.</td>
+          </tr>
+          <tr>
+            <td><strong>Galería / Fotos</strong><br><small>(READ_MEDIA_IMAGES / NSPhotoLibraryUsageDescription)</small></td>
+            <td>Seleccionar fotos existentes para el perfil o las rutas.</td>
+            <td>Opcional.</td>
+          </tr>
+          <tr>
+            <td><strong>Sensores de movimiento</strong><br><small>(NSMotionUsageDescription)</small></td>
+            <td>Medir el ángulo de inclinación y la fuerza G durante la ruta.</td>
+            <td>Opcional — las estadísticas de telemetría no estarán disponibles sin él.</td>
+          </tr>
+          <tr>
+            <td><strong>Notificaciones</strong><br><small>(POST_NOTIFICATIONS / UNUserNotificationCenter)</small></td>
+            <td>Alertas de mantenimiento del vehículo y avisos de la comunidad.</td>
+            <td>Opcional.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert info">
+      <span class="alert-icon">ℹ️</span>
+      <div class="alert-body">Puedes revocar cualquier permiso desde los ajustes del sistema operativo. La app te informará si alguna funcionalidad deja de estar disponible como consecuencia.</div>
+    </div>
+  </section>
+
+  <!-- 4. Uso -->
+  <section id="uso">
+    <h2><span class="icon">⚙️</span>4. Cómo usamos tus datos</h2>
+
+    <div class="card">
+      <div class="card-title">Prestación del servicio</div>
+      <p>Grabar, almacenar y mostrar tus rutas en moto; calcular estadísticas (km, velocidad, inclinación); generar el historial de mantenimiento; habilitar funciones sociales (amigos, comunidades, ranking).</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Gamificación</div>
+      <p>Calcular XP, niveles y logros a partir de las rutas grabadas. Estos datos se almacenan en tu perfil de Firestore y nunca se ceden a anunciantes.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Seguridad y estabilidad</div>
+      <p>Firebase Crashlytics envía automáticamente informes de bloqueo anónimos que nos ayudan a identificar y corregir errores. No incluyen tu ubicación ni el contenido de tus rutas.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Notificaciones</div>
+      <p>Solo enviamos notificaciones relacionadas con el servicio: avisos de mantenimiento del vehículo que tú mismo has programado, actividad en comunidades a las que perteneces y alertas de amigos. No enviamos publicidad push.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Mapas y navegación</div>
+      <p>Usamos Mapbox para renderizar el mapa, calcular rutas por carretera y hacer coincidir los puntos GPS con las vías reales (map-matching). Las solicitudes al API de Mapbox se realizan a través de un proxy seguro alojado en Firebase Functions; el token de acceso nunca se expone al cliente.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Mejora del producto</div>
+      <p>Analizamos los informes de Crashlytics de forma agregada para priorizar correcciones. No realizamos perfilado publicitario ni vendemos datos a terceros.</p>
+    </div>
+
+    <h3>Base jurídica del tratamiento (RGPD art. 6)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tratamiento</th><th>Base jurídica</th></tr></thead>
+        <tbody>
+          <tr><td>Cuenta de usuario y funciones principales</td><td>Ejecución del contrato (art. 6.1.b)</td></tr>
+          <tr><td>Crashlytics y diagnóstico</td><td>Interés legítimo (art. 6.1.f)</td></tr>
+          <tr><td>Notificaciones push</td><td>Consentimiento (art. 6.1.a) — puedes revocarlas en ajustes</td></tr>
+          <tr><td>Perfil público opcional</td><td>Consentimiento (art. 6.1.a)</td></tr>
+          <tr><td>Compras in-app</td><td>Ejecución del contrato (art. 6.1.b)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5. Terceros -->
+  <section id="terceros">
+    <h2><span class="icon">🤝</span>5. Terceros y subencargados</h2>
+    <p>Para prestar el servicio, compartimos datos con los siguientes proveedores tecnológicos. Todos cuentan con sus propias políticas de privacidad conformes al RGPD:</p>
+
+    <div class="card">
+      <div class="card-title">Google Firebase (Google LLC)</div>
+      <p><strong>Servicios usados:</strong> Authentication, Firestore, Storage, Crashlytics, App Check, Realtime Database, Cloud Functions.<br>
+      <strong>Datos transferidos:</strong> Toda la información del perfil, rutas, fotos e informes de errores se almacenan en Firebase.<br>
+      <strong>Región:</strong> europe-west1 (Bélgica) para Cloud Functions; datos de Firestore/Storage en la región predeterminada de Firebase.<br>
+      <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Política de privacidad de Firebase →</a></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Mapbox (Mapbox Inc.)</div>
+      <p><strong>Servicios usados:</strong> Renderizado de mapas 3D, Map Matching API, Directions API.<br>
+      <strong>Datos transferidos:</strong> Coordenadas GPS de las rutas se envían al API de Mapbox a través de un proxy seguro en Firebase Functions para el ajuste al trazado de carreteras. Mapbox no recibe tu identificador de usuario.<br>
+      <a href="https://www.mapbox.com/legal/privacy" target="_blank" rel="noopener">Política de privacidad de Mapbox →</a></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Google Sign-In (Google LLC)</div>
+      <p>Si te registras con tu cuenta de Google, Google comparte con nosotros tu nombre, email y foto de perfil. No accedemos a ningún otro dato de tu cuenta de Google.<br>
+      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de privacidad de Google →</a></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Apple Sign In (Apple Inc.)</div>
+      <p>Si te registras con tu ID de Apple, Apple puede enviarnos un email privado de retransmisión. Cumplimos con los requisitos de Apple para la eliminación de cuenta cuando el usuario lo solicita.<br>
+      <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Política de privacidad de Apple →</a></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">RevenueCat (RevenueCat Inc.)</div>
+      <p><strong>Servicios usados:</strong> Gestión de suscripciones y compras in-app (Rodamolt PRO).<br>
+      <strong>Datos transferidos:</strong> Identificador de usuario anonimizado, estado de suscripción e historial de compras. RevenueCat no recibe tu nombre, email ni datos de ruta.<br>
+      <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">Política de privacidad de RevenueCat →</a></p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Nominatim / OpenStreetMap</div>
+      <p><strong>Servicio usado:</strong> Búsqueda de lugares por nombre en el buscador del mapa.<br>
+      <strong>Datos transferidos:</strong> El texto que escribes en el campo de búsqueda se envía a los servidores públicos de Nominatim con un User-Agent identificativo. No se envía tu ubicación ni tu identidad.<br>
+      <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">Política de privacidad de OpenStreetMap →</a></p>
+    </div>
+
+    <div class="alert success">
+      <span class="alert-icon">✅</span>
+      <div class="alert-body"><strong>No vendemos tus datos.</strong> Ninguno de tus datos personales es cedido, vendido ni alquilado a terceros con fines publicitarios, de marketing o de cualquier otra naturaleza comercial.</div>
+    </div>
+  </section>
+
+  <!-- 6. Transferencias internacionales -->
+  <section id="transferencias">
+    <h2><span class="icon">🌍</span>6. Transferencias internacionales</h2>
+    <p>Algunos de nuestros proveedores (Google/Firebase, Mapbox, RevenueCat) tienen sede en Estados Unidos. Estas transferencias están amparadas por:</p>
+    <ul>
+      <li>Las <strong>Cláusulas Contractuales Tipo (CCT)</strong> aprobadas por la Comisión Europea.</li>
+      <li>El marco del <strong>EU-US Data Privacy Framework</strong> donde sea aplicable.</li>
+    </ul>
+    <p>Puedes consultar las garantías específicas en las políticas de privacidad de cada proveedor enlazadas en la sección anterior.</p>
+  </section>
+
+  <!-- 7. Retención -->
+  <section id="retencion">
+    <h2><span class="icon">🗓️</span>7. Retención de datos</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Tipo de dato</th><th>Período de retención</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Perfil de usuario</strong></td><td>Mientras la cuenta esté activa. Se elimina en 30 días tras la solicitud de borrado.</td></tr>
+          <tr><td><strong>Rutas e historial</strong></td><td>Indefinido mientras la cuenta esté activa. El usuario puede borrar rutas individualmente en cualquier momento.</td></tr>
+          <tr><td><strong>Fotos</strong></td><td>Mientras la cuenta esté activa o hasta que el usuario las elimine.</td></tr>
+          <tr><td><strong>Informes de Crashlytics</strong></td><td>90 días (política estándar de Firebase Crashlytics).</td></tr>
+          <tr><td><strong>Datos de suscripción (RevenueCat)</strong></td><td>Según los términos de RevenueCat y las tiendas (Google Play / App Store).</td></tr>
+          <tr><td><strong>Registros de autenticación</strong></td><td>Los gestiona Firebase Auth según su política de retención estándar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 8. Compras in-app -->
+  <section id="compras">
+    <h2><span class="icon">💳</span>8. Compras dentro de la app</h2>
+    <div class="alert orange">
+      <span class="alert-icon">🏆</span>
+      <div class="alert-body"><strong>Rodamolt PRO</strong> es la suscripción de pago de la app. Desbloquea funciones avanzadas de estadísticas, personalización y acceso prioritario a novedades.</div>
+    </div>
+
+    <h3>Procesamiento de pagos</h3>
+    <p>Los pagos se procesan <strong>exclusivamente</strong> a través de la tienda de aplicaciones que usas:</p>
+    <ul>
+      <li><strong>Google Play Store</strong> (Android) — el cargo aparece en tu cuenta de Google.</li>
+      <li><strong>Apple App Store</strong> (iOS) — el cargo aparece en tu ID de Apple.</li>
+    </ul>
+    <p>Caladev Studio <strong>no almacena</strong> ni procesa datos de tarjeta de crédito, PayPal u otros métodos de pago. Toda la información financiera la gestiona directamente Google o Apple.</p>
+
+    <h3>Gestión de suscripciones</h3>
+    <p>RevenueCat gestiona el estado de tu suscripción (activa, cancelada, caducada) y nos informa para habilitar o revocar el acceso a las funciones PRO. RevenueCat recibe un identificador de usuario anonimizado, no tu email ni tus datos de ruta.</p>
+
+    <h3>Política de reembolsos</h3>
+    <p>Los reembolsos se gestionan íntegramente a través de la tienda donde realizaste la compra:</p>
+    <ul>
+      <li><strong>Android:</strong> <a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">Política de reembolso de Google Play</a></li>
+      <li><strong>iOS:</strong> <a href="https://support.apple.com/billing" target="_blank" rel="noopener">Política de reembolso de Apple</a></li>
+    </ul>
+    <p>Para cualquier incidencia con tu suscripción, contacta también con nosotros en <a href="mailto:caladevstudio@gmail.com" style="color:var(--primary);">caladevstudio@gmail.com</a>.</p>
+
+    <h3>Cancelación</h3>
+    <p>Puedes cancelar tu suscripción en cualquier momento desde los ajustes de tu cuenta en Google Play o App Store. El acceso PRO se mantendrá activo hasta el final del período ya pagado.</p>
+  </section>
+
+  <!-- 9. Derechos -->
+  <section id="derechos">
+    <h2><span class="icon">⚖️</span>9. Tus derechos (RGPD)</h2>
+    <p>Como residente en la Unión Europea, tienes los siguientes derechos sobre tus datos personales:</p>
+
+    <div class="card">
+      <div class="card-title">Acceso</div>
+      <p>Puedes solicitar una copia de todos los datos que almacenamos sobre ti.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Rectificación</div>
+      <p>Puedes corregir datos inexactos directamente desde la pantalla de perfil de la app o contactando con nosotros.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Supresión ("derecho al olvido")</div>
+      <p>Puedes solicitar la eliminación completa de tu cuenta y todos tus datos asociados desde <strong>Ajustes → Cuenta → Eliminar cuenta</strong> dentro de la app, o enviándonos un email. Procesamos la solicitud en un máximo de 30 días.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Portabilidad</div>
+      <p>Puedes exportar tus rutas en formato GPX estándar desde la app en cualquier momento, sin coste ni restricciones.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Oposición y limitación</div>
+      <p>Puedes oponerte a tratamientos basados en interés legítimo o solicitar su limitación contactando con nosotros.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Retirada del consentimiento</div>
+      <p>Donde el tratamiento se basa en tu consentimiento (notificaciones push, perfil público), puedes retirarlo en cualquier momento desde los ajustes de la app o del sistema operativo, sin que ello afecte a la licitud del tratamiento previo.</p>
+    </div>
+
+    <div class="alert info">
+      <span class="alert-icon">🏛️</span>
+      <div class="alert-body">Si consideras que el tratamiento de tus datos vulnera la normativa, puedes presentar una reclamación ante la <strong>Agencia Española de Protección de Datos (AEPD)</strong>: <a href="https://www.aepd.es" target="_blank" rel="noopener" style="color:var(--cyan);">www.aepd.es</a></div>
+    </div>
+  </section>
+
+  <!-- 10. Menores -->
+  <section id="menores">
+    <h2><span class="icon">👶</span>10. Menores de edad</h2>
+    <p>Rodamolt no está dirigida a menores de <strong>16 años</strong>. No recogemos conscientemente datos personales de menores de esa edad. Si eres padre, madre o tutor y crees que tu hijo ha creado una cuenta, contacta con nosotros en <a href="mailto:caladevstudio@gmail.com" style="color:var(--primary);">caladevstudio@gmail.com</a> y eliminaremos la cuenta en el plazo de 48 horas.</p>
+  </section>
+
+  <!-- 11. Datos locales -->
+  <section id="cookies">
+    <h2><span class="icon">💾</span>11. Datos locales y caché</h2>
+    <p>La app almacena los siguientes datos en tu propio dispositivo:</p>
+    <ul>
+      <li><strong>Preferencias de usuario</strong> (estilo de mapa, unidades km/mph, etc.) en <code>SharedPreferences</code>.</li>
+      <li><strong>Caché de mapas</strong> — tiles descargados para visualización offline.</li>
+      <li><strong>Credenciales de sesión</strong> — almacenadas de forma cifrada en <code>flutter_secure_storage</code> con AES-GCM y Android Keystore / iOS Secure Enclave.</li>
+    </ul>
+    <p>Esta app <strong>no utiliza cookies de rastreo</strong> ni tecnologías de seguimiento web de ningún tipo. Al ser una aplicación nativa, no aplican las directivas europeas de cookies en el sentido estricto.</p>
+  </section>
+
+  <!-- 12. Cambios -->
+  <section id="cambios">
+    <h2><span class="icon">📝</span>12. Cambios en esta política</h2>
+    <p>Podemos actualizar esta política cuando sea necesario para reflejar cambios en la app, en la legislación aplicable o en los proveedores de servicios. Cuando realicemos cambios sustanciales:</p>
+    <ul>
+      <li>Actualizaremos la fecha de "Última actualización" al inicio de esta página.</li>
+      <li>Te notificaremos mediante una notificación en la app o un aviso en el momento del inicio de sesión si el cambio afecta a tus derechos.</li>
+    </ul>
+    <p>El uso continuado de la app tras la publicación de los cambios implica la aceptación de la política actualizada.</p>
+  </section>
+
+  <!-- 13. Contacto -->
+  <section id="contacto">
+    <h2><span class="icon">✉️</span>13. Contacto</h2>
+    <p>Para cualquier consulta, ejercicio de derechos o incidencia relacionada con tu privacidad:</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-label">Email de privacidad</div>
+        <div class="contact-value"><a href="mailto:caladevstudio@gmail.com">caladevstudio@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Plazo de respuesta</div>
+        <div class="contact-value">Máximo 30 días hábiles</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Idioma de atención</div>
+        <div class="contact-value">Español, Catalán, Inglés</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Eliminación de cuenta</div>
+        <div class="contact-value">Desde la app o por email</div>
+      </div>
+    </div>
+    <div class="alert success" style="margin-top:20px;">
+      <span class="alert-icon">🏍️</span>
+      <div class="alert-body"><strong>Gracias por confiar en Rodamolt.</strong> Nuestra promesa es simple: tus datos son tuyos. Los usamos para darte la mejor experiencia en moto, punto.</div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <span>Rodamolt</span> · Caladev Studio · Lleida, España<br>
+  Política de privacidad v1.1 · Junio 2026 · App v0.4.8<br>
+  Cumple con RGPD (UE 2016/679) · LOPDGDD 3/2018 · Google Play Developer Policy · Apple App Store Review Guidelines
+</footer>
+
+</body>
+</html>
